@@ -10,10 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap.css
- *= require bootstrap.min
- *= require bootstrap-responsive.css
- *= require bootstrap-responsive.min
  *= require tasks.scss
  *= require_self
  */

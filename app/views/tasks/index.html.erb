@@ -1,33 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Tasks</h1>
+  <h1>Tasks</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>User</th>
-      <th>Details</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= task.title %></td>
-        <td><%= task.user %></td>
-        <td><%= task.details %></td>
-        <td>
-          <%= link_to 'Show', task %>
-          <%= link_to 'Edit', edit_task_path(task) %>
-          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+        <th>Title</th>
+        <th>User</th>
+        <th>Details</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.title %></td>
+          <td><%= task.user %></td>
+          <td><%= task.details %></td>
+          <td>
+            <%= link_to 'Show', task %>
+            <%= link_to 'Edit', edit_task_path(task) %>
+            <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Task', new_task_path %>
+  <br>
+
+  <%= link_to 'New Task', new_task_path %>
+</div>

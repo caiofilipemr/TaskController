@@ -1,32 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Issues</title>
+  <title>Tasker</title>
   <%= csrf_meta_tags %>
-
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-<p class="navbar-text pull-right">
-  <nav class="navbar navbar-default app-bar">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          <% if user_signed_in? %>
-              Logged in as <strong><%= current_user.email %></strong>.
-              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-          <% else %>
-              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
-              <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
-          <% end %>
-        </a>
-      </div>
-    </div>
-  </nav>
-</p>
-<%= yield %>
+<% if user_signed_in? %>
+  <%= render 'layouts/navbar' %>
+  <%= yield %>
+<% else %>
+  <%= yield %>
+<% end %>
 </body>
 </html>
