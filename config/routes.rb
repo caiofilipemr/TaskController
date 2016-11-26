@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'users/sign_in'
   resources :tasks
 
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  root to: 'tasks#index'
 end

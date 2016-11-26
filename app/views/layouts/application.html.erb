@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Tasker</title>
+  <%= javascript_include_tag 'application.js' %>
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +14,7 @@
 <body>
 <% if user_signed_in? %>
   <%= render 'layouts/navbar' %>
-  <%= yield %>
-<% else %>
-  <%= yield %>
 <% end %>
+<%= yield %>
 </body>
 </html>
