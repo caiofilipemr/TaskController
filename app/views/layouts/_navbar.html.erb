@@ -6,11 +6,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Tasker</a>
+      <%= link_to 'Tasker', root_path, class: 'navbar-brand' %>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">Tarefas</a></li>
+        <li><%= link_to 'Tarefas', tasks_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
