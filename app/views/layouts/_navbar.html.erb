@@ -14,10 +14,17 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to ' Editar perfil', edit_user_registration_path, :class => 'glyphicon glyphicon-user' %>
+          <%= link_to edit_user_registration_path do %>
+            <span class="glyphicon glyphicon-user" style="padding-right: 2px"></span>
+            Editar perfil
+          <% end %>
         </li>
         <li>
-          <%= link_to ' Sair', destroy_user_session_path, method: :delete, :class => 'glyphicon glyphicon-log-in' %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <span class="glyphicon glyphicon-log-in" style="padding-right: 2px"></span>
+            Sair
+          <% end %>
+          <%#= link_to ' Sair', destroy_user_session_path, method: :delete, :class => 'glyphicon glyphicon-log-in' %>
         </li>
       </ul>
     </div>

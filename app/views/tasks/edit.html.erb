@@ -1,6 +1,10 @@
-<h1>Editing Task</h1>
-
-<%= render 'form', task: @task %>
-
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<div class="container">
+  <div class="panel panel-default devise-bs">
+    <div class="panel-heading">
+      <h4><%= t('.alterar_tarefa', :default => 'Alterar tarefa') %></h4>
+    </div>
+    <div class="panel-body">
+      <%= render 'form', task: @task %>
+    </div>
+  </div>
+</div>
