@@ -2,7 +2,7 @@
   <%= form_for(@task) do |f| %>
       <% if @task.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(task.errors.count, 'error') %> prohibited this task from being saved:</h2>
+            <h2><%= pluralize(@task.errors.count, 'error') %> prohibited this task from being saved:</h2>
 
             <ul>
               <% @task.errors.full_messages.each do |message| %>
@@ -55,6 +55,18 @@
             <%= f.label :user_attributed_id, text='Atribuído para' %>
             <%= f.select :user_attributed_id, options_from_collection_for_select(User.all, "id", "name"), include_blank: true, class: 'form-control' %>
           </div>
+        </div>
+      </div>
+      <div class="panel panel-default devise-bs">
+        <div class="panel-heading">
+          Novo follow-up
+        </div>
+        <div class="panel-body">
+          <%= fields_for FollowUp.new do |fu| %>
+              <div class="form-group">
+                <%= fu.text_area :details, class: 'form-control', rows: 5 %>
+              </div>
+          <% end %>
 
           <div class="actions">
             <%= link_to 'Voltar', tasks_path, class: 'btn btn-default col-md-1', style: 'margin: 2px' %>
@@ -63,4 +75,5 @@
         </div>
       </div>
   <% end %>
+  <%= render 'follow_ups/index' %>
 </div>

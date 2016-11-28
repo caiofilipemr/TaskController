@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_follow_ups, only: [:edit]
 
   # GET /tasks
   # GET /tasks.json
@@ -41,9 +42,27 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+    @follow_up = FollowUp.new(follow_ups_params)
+    @follow_up.user = current_user
+    task = Task.find(params[:id])
+    task.attributes = task_params
+    changes = task.changed
+    str = String.new
+
+    changes.each do |c|
+      str << c
+      str << ': '
+      str << @task.send(c).to_s
+      str << ' alterado para '
+      str << task.send(c).to_s
+      str << '\n'
+    end
+    @follow_up.updates = str
+
+    @task.follow_ups << @follow_up
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to edit_task_path(@task), notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
@@ -63,13 +82,21 @@ class TasksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def task_params
-      params.require(:task).permit(:title, :details, :priority)
-    end
+  def set_follow_ups
+    @follow_ups = @task.follow_ups
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def task_params
+    params.require(:task).permit(:title, :details, :priority)
+  end
+
+  def follow_ups_params
+    params.require(:follow_up).permit(:details)
+  end
 end

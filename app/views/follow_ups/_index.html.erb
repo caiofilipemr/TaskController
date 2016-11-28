@@ -1,0 +1,13 @@
+<% @follow_ups.each do |follow_up| %>
+    <div class="panel panel-default devise-bs">
+      <div class="panel-heading">
+        <b>Por:</b>
+        <%= "#{follow_up.user.name} em #{follow_up.created_at.strftime('%d/%m/%Y %H:%M')}" %>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <%= follow_up.details %>
+        </div>
+      </div>
+    </div>
+<% end %>
