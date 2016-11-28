@@ -6,6 +6,7 @@
       <%= f.email_field :email, :placeholder => 'Email' %>
       <%= f.password_field :password, :placeholder => 'Senha' %>
       <%= f.password_field :password_confirmation, :placeholder => 'Confirmar senha' %>
+      <%= f.select :profile_type, PROFILE_TYPE, :placeholder => 'Tipo' %>
       <%= f.submit 'Cadatrar', :class=>'btn btn-primary' %>
   <% end %>
   <%= render 'devise/shared/links' %>

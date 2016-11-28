@@ -12,6 +12,11 @@
       <ul class="nav navbar-nav">
         <li><%= link_to 'Tarefas', tasks_path %></li>
       </ul>
+      <% if 'Administrador' == PROFILE_TYPE[current_user.profile_type].first %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Gerenciar usuários', users_path %></li>
+        </ul>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to edit_user_registration_path do %>

@@ -32,6 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       ## Profile
       t.string :name,              null: false, default: ''
+      t.integer :profile_type,     null: false, default: 0
 
       t.timestamps null: false
     end

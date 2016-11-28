@@ -13,5 +13,5 @@ STATUS = [['Não iniciado', 0],
 
 PROFILE_TYPE = [['Solicitante', 0],
                 ['Observador', 1],
-                ['Desenvolvedor', 2],
+                ['Suporte', 2],
                 ['Administrador', 3]]

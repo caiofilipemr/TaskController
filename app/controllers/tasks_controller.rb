@@ -5,7 +5,11 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    if 'Solicitante' == PROFILE_TYPE[current_user.profile_type].first
+      @tasks = Task.where(user_created: current_user).all
+    else
+      @tasks = Task.all
+    end
   end
 
   # GET /tasks/1
@@ -93,7 +97,8 @@ class TasksController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def task_params
-    params.require(:task).permit(:title, :details, :priority)
+    params.require(:task).permit(:title, :details, :priority, :user_attributed_id, :status,
+                                 :stage, :init_date, :expected_completion_date, :code)
   end
 
   def follow_ups_params
