@@ -53,7 +53,7 @@
 
           <div class="form-group">
             <%= f.label :user_attributed_id, text='Atribuído para' %>
-            <%= f.select :user_attributed_id, options_from_collection_for_select(User.all, "id", "name"), include_blank: true, class: 'form-control' %>
+            <%= f.select :user_attributed_id, options_from_collection_for_select(User.all, 'id', 'name'), include_blank: true, class: 'form-control' %>
           </div>
         </div>
       </div>
