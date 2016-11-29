@@ -24,8 +24,11 @@
               <%= f.password_field :password_confirmation, :placeholder => 'Confirmar senha', class: "form-control" %>
             </div>
 
+            <div class="">
+              <%= f.select :profile_type, PROFILE_TYPE, :placeholder => 'Tipo', class: "dropdown-menu" %>
+            </div>
+
             <div class="form-group">
-              <%= f.select :profile_type, PROFILE_TYPE, :placeholder => 'Tipo', :class => "select2"%>
               <%= f.submit 'Cadatrar', :class => 'btn btn-primary' %>
             </div>
 
