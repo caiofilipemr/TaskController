@@ -63,7 +63,7 @@ class TasksController < ApplicationController
     end
     @follow_up.updates = str
 
-    @task.follow_ups << @follow_up
+    @task.follow_ups << @follow_up unless not @follow_up.details or @follow_up.details.blank?
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to edit_task_path(@task), notice: 'Task was successfully updated.' }

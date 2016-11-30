@@ -23,8 +23,8 @@
             <td><%= link_to task.title, edit_task_path(task) %></td>
             <td><%= task.user_created.name %></td>
             <td><%= STATUS[task.status].first %></td>
-            <td><%= task.init_date %></td>
-            <td><%= task.expected_completion_date %></td>
+            <td><%= task.init_date.strftime('%d/%m/%Y') if task.init_date %></td>
+            <td><%= task.expected_completion_date.strftime('%d/%m/%Y') if task.expected_completion_date %></td>
             <td><span class="label <%= PRIORITY[task.priority][1] %> col-sm-12"><%= PRIORITY[task.priority].first %></span></td>
           </tr>
       <% end %>
