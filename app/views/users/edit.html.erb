@@ -21,6 +21,10 @@
             <%= f.label :password_confirmation, text='Confirmar senha' %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
+          <div class="form-group">
+            <%= f.label :profile_type, text='Tipo de perfil' %>
+            <%= f.select :profile_type, PROFILE_TYPE, class: 'form-control' %>
+          </div>
           <%= link_to 'Back', tasks_path, class: 'btn btn-default col-md-1', style: 'margin: 2px' %>
           <%= f.submit t('.alterar', :default => 'Alterar'), class: 'btn btn-primary col-md-1', style: 'margin: 2px' %>
       <% end %>

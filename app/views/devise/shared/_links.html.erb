@@ -1,13 +1,13 @@
 <% if controller_name != 'sessions' %>
-  <%= link_to t(".sign_in", :default => "Sign in"), new_session_path(resource_name) %><br />
+  <%= link_to t(".entrar", :default => 'Entrar'), new_session_path(resource_name) %><br />
 <% end %>
 
 <% if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to t(".cadastrar", :default => "Cadastrar"), new_registration_path(resource_name) %><br />
+  <%= link_to t(".cadastrar", :default => 'Cadastrar'), new_registration_path(resource_name) %><br />
 <% end %>
 
-<% if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= link_to t(".esqueceu_sua_senha", :default => "Esqueceu sua senha?"), new_password_path(resource_name) %><br />
+<% if devise_mapping.recoverable? && controller_name != 'passwords' && false %>
+  <%= link_to t(".esqueceu_sua_senha", :default => 'Esqueceu sua senha?'), new_password_path(resource_name) %><br />
 <% end %>
 
 <% if devise_mapping.confirmable? && controller_name != 'confirmations' %>
