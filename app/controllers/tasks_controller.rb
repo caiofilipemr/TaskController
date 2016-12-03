@@ -9,6 +9,7 @@ class TasksController < ApplicationController
       @tasks = Task.where(user_created: current_user).all
     else
       @tasks = Task.all
+      teste = 1
     end
   end
 
